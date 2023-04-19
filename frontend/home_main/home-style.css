@@ -89,10 +89,10 @@ body::-webkit-scrollbar-thumb{
     background-color: rgba(255, 255, 255, 0.1);
 }
 #profile, #contact{
-    flex: 2.2;
+    flex: 1.25;
 }
 #logout{
-    flex: 2.5;
+    flex: 1.75;
     background-color: white;
     color: black;
 }
@@ -177,6 +177,14 @@ body::-webkit-scrollbar-thumb{
     position: relative;
     display: flex;
     flex-direction: column-reverse;
+}
+
+.features p{
+    font-size: larger;
+}
+
+.features h2{
+    font-size: x-large;
 }
 
 /* features glow */
