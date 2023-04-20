@@ -177,14 +177,23 @@ body::-webkit-scrollbar-thumb{
     position: relative;
     display: flex;
     flex-direction: column-reverse;
+    transition: scale 250ms ease-in;
+}
+.features:hover{
+    scale: 1.01;
+    transition: scale 100ms ease-in;
 }
 
+/* features content */
 .features p{
-    font-size: larger;
+    font-size: 1.2em;
+    margin: 20px 3vw;
+    height: fit-content;
 }
 
 .features h2{
-    font-size: x-large;
+    margin: 0 3vw;
+    font-size: 1.5em;
 }
 
 /* features glow */
@@ -200,18 +209,10 @@ body::-webkit-scrollbar-thumb{
     transition: opacity 500ms;
 
     background: radial-gradient(
-        600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.06),
-        transparent 60%
+        400px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.06),
+        transparent 75%
     )
 }
 .features:hover::before{
     opacity: 1;
-}
-
-/* features content */
-.features h2{
-    margin: 0 3vw;
-}
-.features p{
-    margin-left: 3vw;
 }
