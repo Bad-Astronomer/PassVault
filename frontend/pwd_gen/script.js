@@ -1,6 +1,8 @@
 const pwd_display = document.getElementById("password");
-const copy_btn = document.getElementById("copy_img");
 const checkbox = document.getElementsByClassName("checkbox");
+
+const copy_btn = document.getElementById("copy-img");
+const save_btn = document.getElementById("save-button");
 
 const charset = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ", "0123456789", "!@#$%&", "abcdefghijklmnopqrstuvwxyz"];
 let toggle = [1, 0, 0, 0]
@@ -60,19 +62,28 @@ function generate_pwd(){
 
         password.style.pointerEvents = "all";
     }
+
     copy_btn.style.opacity = 1;
+    
+    save_btn.style.fontSize = "1.25em";
+    save_btn.style.padding = "20px";
+    save_btn.style.borderWidth = "1px";
 
     //variable delay due to changing password size
     hack(new_pwd, pwd_display, pwd_charset, delay = (6 - init_display.length/4));
 }
 
-function copy_pwd(){
+function copy_pwd(redirect){
     let text = document.getElementById("password");
 
     navigator.clipboard.writeText(text.innerText);
 
     document.getElementById("copy-alert").style.scale = "1 1"
     setTimeout(() => {document.getElementById("copy-alert").style.scale = "1 0"}, 2000);
+
+    if(redirect){
+        setTimeout(() => {window.location.href = '../home_main/home.html'}, 1000);
+    }
 }
 
 function toggle_charset(event, option){
@@ -106,7 +117,11 @@ document.getElementById("password-size-slider").oninput = (event) =>{
         pwd += "*";
     }
     pwd_display.innerText = pwd;
+
     copy_btn.style.opacity = 0;
+    save_btn.style.fontSize = 0;
+    save_btn.style.padding = 0;
+    save_btn.style.borderWidth = 0;
 }
 
 for(let i = 0; i < toggle.length; i++){
