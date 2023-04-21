@@ -13,8 +13,8 @@
         <div class="pwd-container">
             <h2 id="header">PASSWORD GENERATOR</h2>
             <div class="wrapper">
-                <h2 id="password" class="button" onclick="copy_pwd()">************</h2>
-                <img src="./assets/copy.svg" alt="" id="copy_img">
+                <h2 id="password" class="button" onclick="copy_pwd(0)">************</h2>
+                <img src="./assets/copy.svg" alt="" id="copy-img">
             </div>
             <div id="generate" class="button" onclick="generate_pwd()">
                 <p>&nbsp&nbsp</p>
@@ -48,7 +48,7 @@
                     </div>
                 </div>
             </div>
-            <p id="save-button" class="button" onclick="window.location.href = '../home_main/home.html'">COPY AND SAVE</p>
+            <p id="save-button" class="button" onclick="copy_pwd(1)">COPY AND SAVE</p>
         </div>
 
         <div id="copy-alert">COPIED!</div>
