@@ -194,6 +194,10 @@ body{
 
 #save-button{
     margin-bottom: 0;
+    font-size: 0;
+    padding: 0;
+    border-width: 0;
+    transition: all 200ms ease-in;
 }
 #save-button:hover{
     color: black;
