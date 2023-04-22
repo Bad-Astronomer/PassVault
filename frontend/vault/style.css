@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500&display=swap');
+
+:root{
+    --container-color: rgba(255, 255, 255, 0.1);
+    --border: rgba(200, 200, 200, 0.5) solid 1px;
+}
+
+body{
+    background: url(./assets/background.jpg);
+    background-size: cover;
+    overflow-y: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+*{
+    font-family: 'Chakra Petch', sans-serif;
+    box-sizing: border-box;
+}
+
+.search-container{
+    height: 25vh;
+    position: relative;
+}
+
+.backbtn{
+    height: clamp(2em, 6vw, 3em);
+    aspect-ratio: 1;
+    position: absolute;
+    background-color: transparent;
+    border: var(--border);
+    top: 50%;
+    translate: -50% -50%;
+    left: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.backbtn:hover{
+    background-color: var(--container-color);
+}
+
+.backbtn p{
+    rotate: -90deg;
+    color: white;
+    text-align: center;
+    font-weight: 1000;
+}
+
+.searchbar{
+    position: relative;
+    border: var(--border);
+    width: 60%;
+    top: 50%;
+    translate: 0 -50%;
+    height: clamp(2em, 6vw, 3em);
+    margin: auto;
+    display: flex;
+}
+
+.search-text-container{
+    position: relative;
+    flex: 8;
+    display: flex;
+}
+
+input[type=text]{
+    border: var(--border);
+    background-color: var(--container-color);
+    position: relative;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: clamp(1em, 2vw, 1.2em);
+    color: white;
+}
+
+.search-icon-container{
+    border: var(--border);
+    position: relative;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 200ms ease-out;
+}
+
+.search-icon-container img{
+    margin: 10px;
+    filter: invert(1);
+}
+
+.search-icon-container::before{
+    content: "";
+    position: absolute;
+    height: 100%; /*important*/
+    width: 100%; /*important*/
+    transform-origin: bottom;
+    transform: scaleY(0);
+    transition: all 200ms ease-out;
+}
+
+.search-icon-container:hover::before{
+    transform: scaleY(1);
+    background-color: white;
+}
+
+.search-icon-container:hover img{
+    filter: invert(0);
+}
+
+.vault-container{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    height: 85vh;
+    /* border: var(--border); */
+}
+
+.vaultbox{
+    border: var(--border);
+    height: clamp(30%, 70vh, 75%);
+    width: 60%;
+    /* box-sizing: border-box; */
+    /* padding: 3%; */
+    display: flex;
+    backdrop-filter: blur(5px);
+    align-items: center;
+}
+
+.entrybox{
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    /* border: var(--border); */
+    position: relative;
+    padding-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    /* margin-top: auto; */
+    width: 100%;
+}
+
+.entrybox::-webkit-scrollbar{
+    width: 0.5rem;
+}
+
+.entrybox::-webkit-scrollbar-track{
+    background: black;
+}
+
+.entrybox::-webkit-scrollbar-thumb{
+    background: white;
+    border-radius: 0.25rem;
+}
+
+.entry{
+    border: var(--border);
+    position: relative;
+    /* height: clamp(1em,6vw,3em); */
+    margin: 0 3vw 1em;
+    padding-left: 15px;
+    height: fit-content;
+    background-color: var(--container-color);
+    color: white;
+    translate: 0 50%;
+    font-size: clamp(1em, 2vw, 1.2em);
+}
