@@ -8,7 +8,6 @@
 body{
     background: url(./assets/background.jpg);
     background-size: cover;
-    overflow-y: hidden;
     margin: 0;
     padding: 0;
 }
@@ -35,10 +34,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.backbtn:hover{
-    background-color: var(--container-color);
+    cursor: pointer;
+    backdrop-filter: blur(5px);
 }
 
 .backbtn p{
@@ -46,6 +43,25 @@ body{
     color: white;
     text-align: center;
     font-weight: 1000;
+    scale: 1.5 1;
+}
+.backbtn::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transform-origin: bottom;
+    transform: scaleY(0);
+    transition: all 200ms ease-out;
+}
+
+.backbtn:hover::before{
+    transform: scaleY(1);
+    background-color: white;
+}
+
+.backbtn:hover p{
+    color: black;
 }
 
 .searchbar{
@@ -57,6 +73,7 @@ body{
     height: clamp(2em, 6vw, 3em);
     margin: auto;
     display: flex;
+    backdrop-filter: blur(5px);
 }
 
 .search-text-container{
@@ -65,7 +82,7 @@ body{
     display: flex;
 }
 
-input[type=text]{
+#search-password{
     border: var(--border);
     background-color: var(--container-color);
     position: relative;
@@ -73,13 +90,17 @@ input[type=text]{
     padding: 10px 20px;
     font-size: clamp(1em, 2vw, 1.2em);
     color: white;
+    transition: border 100ms ease-in;
+}
+#search-password:focus{
+    outline: none;
+    border: 1px solid white;
 }
 
 .search-icon-container{
     border: var(--border);
     position: relative;
     display: flex;
-    flex: 1;
     justify-content: center;
     cursor: pointer;
     transition: all 200ms ease-out;
@@ -88,13 +109,14 @@ input[type=text]{
 .search-icon-container img{
     margin: 10px;
     filter: invert(1);
+    width: 2.5vw;
 }
 
 .search-icon-container::before{
     content: "";
     position: absolute;
-    height: 100%; /*important*/
-    width: 100%; /*important*/
+    height: 100%;
+    width: 100%; 
     transform-origin: bottom;
     transform: scaleY(0);
     transition: all 200ms ease-out;
@@ -113,7 +135,7 @@ input[type=text]{
     display: flex;
     justify-content: center;
     align-items: start;
-    height: 85vh;
+    height: 75vh;
     /* border: var(--border); */
 }
 
@@ -133,20 +155,15 @@ input[type=text]{
     scroll-behavior: smooth;
     /* border: var(--border); */
     position: relative;
-    padding-bottom: 2em;
     display: flex;
     flex-direction: column;
-    height: 90%;
+    height: calc(100% - 5vw);
     /* margin-top: auto; */
     width: 100%;
 }
 
 .entrybox::-webkit-scrollbar{
     width: 0.5rem;
-}
-
-.entrybox::-webkit-scrollbar-track{
-    background: black;
 }
 
 .entrybox::-webkit-scrollbar-thumb{
@@ -158,11 +175,59 @@ input[type=text]{
     border: var(--border);
     position: relative;
     /* height: clamp(1em,6vw,3em); */
-    margin: 0 3vw 1em;
-    padding-left: 15px;
+    margin: 0 2.5vw 1em;
+    padding: 0.5em 1em;
+    padding-right: 0;
     height: fit-content;
     background-color: var(--container-color);
     color: white;
-    translate: 0 50%;
     font-size: clamp(1em, 2vw, 1.2em);
+    /* opacity: 0; */
+    /* transition: opacity 200ms ease-in; */
+    opacity: 0;
+    transition: scale 200ms ease-in, border 100ms ease-in;
+}
+.entry p{
+    margin: 0;
+    flex: 1;
+    pointer-events: none;
+}
+
+.entry:hover{
+    scale: 1.01;
+    border: 1px solid white;
+}
+
+.show{
+    transition: opacity 200ms ease-in 100ms;
+    opacity: 1;
+}
+
+#search-error{
+    color: white;
+    position: absolute;
+    inset: 50% 0;
+    translate: 0 -100%;
+    text-align: center;
+    height: fit-content;
+    opacity: 0;
+    transition: opacity 200ms ease-in;
+}
+
+#copy-alert{
+    color: white;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    translate: -50% -50%;
+    margin-bottom: 4.75vh;
+    font-size: 1.5em;
+    background-color: rgba(200, 200, 200, 0.1);
+    padding: 10px 50px;
+    border: var(--border);
+    opacity: 0.75;
+    transition: scale 200ms ease-in;
+    scale: 1 0;
+    transform-origin: bottom;
+    backdrop-filter: blur(5px);
 }
