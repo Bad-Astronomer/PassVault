@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500&display=swap');
+
+body{
+    background: url(./assets/background.jpg);
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    overflow-y: hidden;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Chakra Petch', sans-serif;
+    color: white;
+}
+
+:root{
+    --border: 1px solid rgba(255,255,255,0.5) ;
+    --container-color: rgba(255, 255, 255, 0.1);
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 8vh;
+}
+
+.signupform-box{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    min-height: 100%;
+    align-items: center;
+    border: var(--border);
+    font-size: 1rem;
+    text-align: center;
+    height: 75%;
+    padding: clamp(2em, 10vw, 4em) clamp(2em, 10vw, 7em);
+    /* padding: clamp(3em,10vh,5em) clamp(1em,10vw,5em); */
+    backdrop-filter: blur(2px);
+    transition: all 200ms ease-in;
+}
+
+.inputbox label{
+    font-size: 1.25em;
+}
+
+.form-value h2{
+    margin-bottom: 10px;
+    font-size: 1.75em;
+}
+
+input[type=text],input[type=url]{
+    border: var(--border);
+    background-color: var(--container-color);
+    position: relative;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 50px;
+    /* font-size: clamp(0.5em, 2vw, 1.1em); */
+    color: white;
+}   
+
+button{
+    isolation: isolate;
+    padding: 10px 25px;
+    background-color: rgba(200, 200, 200, 0.1);
+    border: var(--border);
+    cursor: pointer;
+    position: relative;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 15px;
+    width: 100%;
+}
+
+button:before{
+    z-index: -1;
+    content: "";
+    background-color: white;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    inset: 0 0;
+    transform-origin: bottom;
+    transform: scaleY(0);
+    transition: all 200ms ease-out;
+}
+button:hover::before{
+    transform: scaleY(1);
+}
+button:hover{
+    color: black;
+}
+
+#deletepass::before{
+    background-color: red;
+}
+
+#deletepass:hover{
+    color: white;
+}

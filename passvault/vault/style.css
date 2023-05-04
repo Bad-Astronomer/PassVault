@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500&display=swap');
+
+:root{
+    --container-color: rgba(255, 255, 255, 0.1);
+    --border: rgba(200, 200, 200, 0.5) solid 1px;
+}
+
+body{
+    background: url(./assets/background.jpg);
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+*{
+    font-family: 'Chakra Petch', sans-serif;
+    box-sizing: border-box;
+}
+
+.search-container{
+    height: 25vh;
+    position: relative;
+}
+
+.backbtn{
+    height: clamp(2em, 6vw, 3em);
+    aspect-ratio: 1;
+    position: absolute;
+    border: var(--border);
+    top: 60%;
+    translate: -50% -50%;
+    left: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+}
+
+.backbtn p{
+    rotate: -90deg;
+    color: white;
+    text-align: center;
+    font-weight: 1000;
+    scale: 1.5 1;
+}
+.backbtn::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transform-origin: bottom;
+    transform: scaleY(0);
+    transition: all 200ms ease-out;
+}
+
+.backbtn:hover::before{
+    transform: scaleY(1);
+    background-color: white;
+}
+
+.backbtn:hover p{
+    color: black;
+}
+
+.searchbar{
+    position: relative;
+    border: var(--border);
+    width: 60%;
+    top: 60%;
+    translate: 0 -50%;
+    height: clamp(2em, 6vw, 3em);
+    margin: auto;
+    display: flex;
+    backdrop-filter: blur(5px);
+}
+
+.search-text-container{
+    position: relative;
+    flex: 8;
+    display: flex;
+}
+
+#search-password{
+    border: var(--border);
+    background-color: var(--container-color);
+    position: relative;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: clamp(1em, 2vw, 1.2em);
+    color: white;
+    transition: border 100ms ease-in;
+}
+#search-password:focus{
+    outline: none;
+    border: 1px solid white;
+}
+
+.search-icon-container{
+    border: var(--border);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 200ms ease-out;
+}
+
+.search-icon-container img{
+    margin: 10px;
+    filter: invert(1);
+    width: 2.5vw;
+}
+
+.search-icon-container::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%; 
+    transform-origin: bottom;
+    transform: scaleY(0);
+    transition: all 200ms ease-out;
+}
+
+.search-icon-container:hover::before{
+    transform: scaleY(1);
+    background-color: white;
+}
+
+.search-icon-container:hover img{
+    filter: invert(0);
+}
+
+.vault-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: 75vh;
+    width: 60vw;
+    margin: auto;
+    /* border: var(--border); */
+}
+
+.vaultbox{
+    border: var(--border);
+    height: clamp(30%, 70vh, 75%);
+    width: 100%;
+    /* box-sizing: border-box; */
+    /* padding: 3%; */
+    display: flex;
+    backdrop-filter: blur(5px);
+    align-items: center;
+}
+
+.entrybox{
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    /* border: var(--border); */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - clamp(2em, 5vw, 4em));
+    /* margin-top: auto; */
+    width: 100%;
+}
+
+.entrybox::-webkit-scrollbar{
+    width: 0.5rem;
+}
+
+.entrybox::-webkit-scrollbar-thumb{
+    background: white;
+    border-radius: 0.25rem;
+}
+
+.entry{
+    border: var(--border);
+    position: relative;
+    /* height: clamp(1em,6vw,3em); */
+    margin: 0 clamp(1em, 2.5vw, 2em) 1em;
+    padding: 0.5em 1em;
+    padding-right: 0;
+    height: fit-content;
+    background-color: var(--container-color);
+    color: white;
+    font-size: clamp(1em, 2vw, 1.2em);
+    /* opacity: 0; */
+    /* transition: opacity 200ms ease-in; */
+    opacity: 0;
+    transition: scale 200ms ease-in, border 100ms ease-in;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.entry div{
+    flex: 1;
+}
+.entry img{
+    height: 2rem;
+    translate: -50% 0;
+    filter: invert(1);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 100ms ease-in;
+}
+.entry p{
+    margin: 0;
+    flex: 1;
+    pointer-events: none;
+}
+
+.entry:hover{
+    scale: 1.01;
+    border: 1px solid white;
+}
+.entry:hover img{
+    opacity: 1;
+}
+
+.show{
+    transition: opacity 200ms ease-in 100ms;
+    opacity: 1;
+}
+
+#search-error{
+    color: white;
+    position: absolute;
+    inset: 50% 0;
+    translate: 0 -100%;
+    text-align: center;
+    height: fit-content;
+    opacity: 0;
+    transition: opacity 200ms ease-in;
+}
+
+#copy-alert{
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    translate: -50% -50%;
+    margin-top: 6vh;
+    font-size: 1.5em;
+    background-color: rgba(200, 200, 200, 0.1);
+    padding: 10px 50px;
+    border: var(--border);
+    opacity: 0.75;
+    transition: scale 200ms ease-in;
+    scale: 1 0;
+    transform-origin: top;
+    backdrop-filter: blur(5px);
+}
+
+.options-container{
+    position: relative;
+    display: flex;
+    color: white;
+    width: 100%;
+}
+.options{
+    isolation: isolate;
+    flex: 1;
+    margin-left: 20px;
+    margin-top: 7.5vh;
+    padding: 15px;
+    border: var(--border);
+    background-color: var(--container-color);
+    backdrop-filter: blur(5px);
+    text-align: center;
+    font-size: clamp(1em, 2vw, 1.2em);
+    cursor: pointer;
+    transition: all 200ms ease-in;
+}
+#edit-password{
+    margin-left: 0;
+}
+
+.options::before{
+    z-index: -1;
+    content: "";
+    position: absolute;
+    inset: 0 0;
+    height: 100%;
+    width: 100%;
+    transform-origin: bottom;
+    transform: scaleY(0);
+    transition: all 200ms ease-out;
+}
+.options:hover::before{
+    transform: scaleY(1);
+    background-color: white;
+}
+.options:hover{
+    color: black;
+}
+
+.edit-expand{
+    color: black;
+    background-color: white;
+}
+.add-shrink{
+    margin-left: 0;
+    padding: 0;
+    border: 0;
+    font-size: 0;
+    flex: 0;
+}

@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    background: url("./assets/background.jpg") no-repeat;
+    background-position: auto;
+    background-size: cover;
+}
+
+:root{
+    --primary-light: rgb(27, 173, 231);
+    --secondary-light: rgb(116, 216, 255);
+    --border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Chakra Petch', sans-serif;
+    color: white;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: auto;
+    flex-direction: column;
+    width: fit-content;
+    gap: 20px;
+}
+
+.pwd-container{
+    text-align: center;
+    font-size: 1.2rem;
+    padding: clamp(3em, 5vw, 4em) clamp(3em, 10vw, 6em);
+    border: var(--border);
+    backdrop-filter: blur(3px);
+    transition: all 200ms ease-in;
+}
+#header{
+    margin-bottom: 50px;
+    font-size: 2em;
+}
+
+.button{
+    isolation: isolate;
+    padding: 20px;
+    background-color: rgba(200, 200, 200, 0.1);
+    border: var(--border);
+    cursor: pointer;
+    position: relative;
+    font-weight: bold;
+    margin: 25px 0 50px;
+    display: flex;
+    justify-content: center;
+    font-size: 1.25em;
+}
+.button:before{
+    z-index: -1;
+    content: "";
+    background-color: white;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    inset: 0 0;
+    transform-origin: bottom;
+    transform: scaleY(0);
+    transition: all 200ms ease-out;
+}
+.button:hover::before{
+    transform: scaleY(1);
+}
+
+/* generate */
+#generate:hover p{
+    color: black;
+}
+#generate img{
+    filter: invert(0.9);
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 25px;
+    scale: 0;
+    opacity: 0;
+    transition: rotate 200ms ease-in, opacity 200ms ease-in;
+}
+#generate:hover img{
+    filter: invert(0);
+    rotate: 180deg;
+}
+
+/* password */
+.wrapper{
+    position: relative;
+}
+#password{
+    margin: 25px 0px;
+}
+#password::before{
+    display: none;
+}
+#password ~ img{
+    filter: invert(1);
+    height: 25px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+    margin: 25px;
+    transition: all 200ms ease-in;
+    z-index: -1;
+}
+#password:hover ~ img{
+    scale: 1.1;
+}
+
+/* copy */
+#copy-alert{
+    position: absolute;
+    top: 0;
+    font-size: 1.5em;
+    background-color: rgba(200, 200, 200, 0.1);
+    padding: 10px 50px;
+    border: var(--border);
+    opacity: 0.75;
+    transition: scale 200ms ease-in;
+    scale: 1 0;
+    transform-origin: top;
+    margin: 25px 0;
+}
+
+.settings-container{
+    margin-top: 25px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    transform-origin: top;
+}
+
+.slider{
+    appearance: none;
+    height: 10px;
+    border-radius: 5px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+}
+
+#password-size div{
+    display: flex;
+    font-size: 1.2rem;
+}
+#password-size-label{
+    flex: 1;
+    text-align: right;
+}
+
+.checkbox-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    gap: 5px;
+}
+.checkbox-wrapper{
+    display: flex;
+    flex-direction: row;
+}
+.checkbox-wrapper p{
+    flex: 1;
+    text-align: left;
+}
+.checkbox{
+    height: 20px;
+    width: 20px;
+    background-color: rgba(255, 255, 255);
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#save-button{
+    margin-bottom: 0;
+    font-size: 0;
+    padding: 0;
+    border-width: 0;
+    transition: all 200ms ease-in;
+}
+#save-button:hover{
+    color: black;
+}

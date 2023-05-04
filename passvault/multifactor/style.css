@@ -1,0 +1,248 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root{
+    --primary-light: rgb(27, 173, 231);
+    --secondary-light: rgb(116, 216, 255);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+section{
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    background: url("./assets/background.jpg") no-repeat;
+    background-position: auto;
+    background-size: cover;
+}
+.form-box{
+    left: 10vw;
+    position: relative;
+    width: 400px;
+    height: 450px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signupform-box{
+    left: 10vw;
+    position: relative;
+    width: 400px;
+    height: 600px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h2{
+    font-size: 2em;
+    color: white;
+    text-align: center;
+}
+.inputbox{
+    position: relative;
+    margin: 30px 0;
+    width: 310px;
+    border-bottom: 2px solid white;
+}
+.inputbox label{
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-60%);
+    color: white;
+    font-size: 1em;
+    pointer-events: none;
+    font-weight: 600;
+    transition: 0.5s;
+}
+input:focus ~ label,
+input:valid ~ label{
+    top: 20px;
+    color: var(--primary-light);
+}
+.inputbox input{
+    width: 100%;
+    height: 20px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 35px 0 15px;
+    color: white;
+}
+.inputbox ion-icon{
+    position: absolute;
+    right: 5px;
+    color: white;
+    font-size: 1.3em;
+    top: 30px;
+}
+.forget{
+    margin: -15px 0 15px;
+    font-size: 0.9em;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+.forget label input{
+    margin-right: 3px;
+}
+.forget label a{
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+}
+.forget label a:hover{
+    transition: 0.3s;
+    color: var(--primary-light);
+    text-decoration: underline;
+}
+button{
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    background: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: 0.3s;
+}
+button:hover{
+    background: var(--primary-light);
+    color: white;
+}
+.register{
+    font-size: 0.9em;
+    color: white;
+    text-align: center;
+    margin: 25px 0 10px;
+}
+.register p a{
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+}
+.register p a:hover{
+    text-decoration: underline;
+    color: var(--primary-light);
+    transition: 0.3s;
+}
+.error {
+    color: #a94442; 
+    font-weight: 500;
+    text-align: center;
+    padding-bottom: 15px;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500&display=swap');
+
+body{
+    background: url(./assets/background.jpg);
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    overflow-y: hidden;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Chakra Petch', sans-serif;
+    color: white;
+}
+
+:root{
+    --border: 1px solid rgba(255,255,255,0.5) ;
+    --container-color: rgba(255, 255, 255, 0.1);
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 23vh;
+}
+
+.form-box{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    min-height: 100%;
+    align-items: center;
+    border: var(--border);
+    font-size: 1rem;
+    text-align: center;
+    height: 75%;
+    padding: clamp(2em, 10vw, 4em) clamp(2em, 10vw, 5em);
+    /* padding: clamp(3em,10vh,5em) clamp(1em,10vw,5em); */
+    backdrop-filter: blur(2px);
+    transition: all 200ms ease-in;
+}
+
+.inputbox label{
+    font-size: 1.25em;
+}
+
+.form-value h2{
+    margin-bottom: 10px;
+    font-size: 1.75em;
+}
+
+input[type=hidden],input[type=email],input[type=password]{
+    border: var(--border);
+    background-color: var(--container-color);
+    position: relative;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 10px;
+    /* font-size: clamp(0.5em, 2vw, 1.1em); */
+    color: white;
+}   
+
+button{
+    isolation: isolate;
+    padding: 10px 25px;
+    background-color: rgba(200, 200, 200, 0.1);
+    border: var(--border);
+    cursor: pointer;
+    position: relative;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+button:before{
+    z-index: -1;
+    content: "";
+    background-color: white;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    inset: 0 0;
+    transform-origin: bottom;
+    transform: scaleY(0);
+    transition: all 200ms ease-out;
+}
+button:hover::before{
+    transform: scaleY(1);
+}
+button:hover{
+    color: black;
+}
+
